@@ -1,5 +1,6 @@
 import pygame
 import random
+import time
 
 # Initialize Pygame
 pygame.init()
@@ -91,8 +92,26 @@ def handle_paddle_movement(keys, paddle1, paddle2, mode):
         if keys[pygame.K_DOWN] and paddle2.bottom < HEIGHT:
             paddle2.y += PADDLE_VELOCITY
 
+# Function to display the title slides
+def show_titles():
+    titles = [
+        "BEETROOT ACADEMY PRESENT",
+        "PING PONG GAME",
+        "written by Igor Kurilov"
+    ]
+    
+    for title in titles:
+        WIN.fill(BLACK)
+        title_text = FONT.render(title, 1, WHITE)
+        WIN.blit(title_text, (WIDTH//2 - title_text.get_width()//2, HEIGHT//2 - title_text.get_height()//2))
+        pygame.display.update()
+        time.sleep(2)  # Display each title for 2 seconds
+
 def main():
     global player1_score, player2_score
+
+    # Show the titles before the game starts
+    show_titles()
 
     # Initialize paddles and ball
     paddle1 = pygame.Rect(20, HEIGHT//2 - PADDLE_HEIGHT//2, PADDLE_WIDTH, PADDLE_HEIGHT)
