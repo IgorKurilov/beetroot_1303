@@ -3,12 +3,14 @@ import threading
 # Global variables
 counter = 0
 rounds = 100000
+lock = threading.Lock()
 
 class Counter(threading.Thread):
     def run(self):
         global counter
         for _ in range(rounds):
-            counter += 1
+            with lock:
+                counter += 1
 
 # Create and start threads
 thread1 = Counter()
