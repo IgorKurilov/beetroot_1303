@@ -1,0 +1,22 @@
+Django-проєкт з додатком notes, який відповідає на запит текстом "Hello from Notes app."
+
+
+Створення Django-проєкту
+
+Створюємо новий Django-проєкт під назвою notes_app.
+
+    Ініціалізуйте новий Django-проєкт:
+    django-admin startproject notes_app
+
+Переходимо в директорію проєкту:
+    cd notes_app
+
+Створюємо Django-застосунку notes
+python manage.py startapp notes
+
+Запуск сервера:
+python manage.py runserver
+
+Перевірка роботи:
+http://127.0.0.1:8000/notes/
+
