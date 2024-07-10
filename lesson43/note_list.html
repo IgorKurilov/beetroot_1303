@@ -1,0 +1,27 @@
+<!-- templates/notes/note_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note List</title>
+</head>
+<body>
+    <h1>Note List</h1>
+    
+    <form method="GET">
+        <input type="text" name="q" placeholder="Search by title">
+        <input type="text" name="category" placeholder="Filter by category">
+        <input type="text" name="reminder_after" placeholder="Filter by reminder (YYYY-MM-DD HH:MM)">
+        <button type="submit">Filter</button>
+    </form>
+    
+    <a href="{% url 'note_new' %}">Add new note</a>
+    
+    <ul>
+        {% for note in notes %}
+            <li>
+                <a href="{% url 'note_detail' note.pk %}">{{ note.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
