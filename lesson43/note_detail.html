@@ -1,0 +1,23 @@
+<!-- templates/notes/note_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Detail</title>
+</head>
+<body>
+    <h1>{{ note.title }}</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    
+    <form method="POST" action="{% url 'note_delete' note.pk %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    
+    <a href="{% url 'note_list' %}">Back to list</a>
+</body>
+</html>
