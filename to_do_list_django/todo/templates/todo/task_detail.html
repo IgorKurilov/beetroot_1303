@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ task.title }}</title>
+</head>
+<body>
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+    <p>Completed: {{ task.completed }}</p>
+    <a href="{% url 'task_update' task.pk %}">Edit</a>
+    <form action="{% url 'task_delete' task.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'task_list' %}">Back to list</a>
+</body>
+</html>
