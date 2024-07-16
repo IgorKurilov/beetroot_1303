@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'notes/styles.css' %}">
+</head>
+<body>
+    <h1>Notes List</h1>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
