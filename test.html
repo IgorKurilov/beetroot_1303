@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTSP Video Stream</title>
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+        #my-video {
+            width: 80%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <video id="my-video" class="video-js vjs-default-skin" controls preload="auto">
+        <source src="rtsp://cctv:cctv1234@qiutts-2.dyndns.org:10554/cam/realmonitor?channel=1&subtype=1" type="rtsp/flv">
+    </video>
+
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-flash/2.2.1/videojs-flash.min.js"></script>
+    <script>
+        var player = videojs('my-video');
+        player.ready(function() {
+            player.play();
+        });
+    </script>
+</body>
+</html>
